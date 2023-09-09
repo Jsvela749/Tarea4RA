@@ -64,9 +64,9 @@ AFRAME.registerComponent('run', {
             this.m2.object3D.getWorldPosition(this.p2);
             this.geometry.vertices[0] = this.p0;
             this.geometry.vertices[1] = this.p1;
-            this.geometry2.vertices[0] = this.p1;
+            this.geometry2.vertices[0] = this.p0;
             this.geometry2.vertices[1] = this.p2;
-            this.geometry3.vertices[0] = this.p0;
+            this.geometry3.vertices[0] = this.p1;
             this.geometry3.vertices[1] = this.p2;
             this.geometry.verticesNeedUpdate = true;
             this.geometry2.verticesNeedUpdate = true;
