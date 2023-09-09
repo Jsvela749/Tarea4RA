@@ -31,7 +31,7 @@ AFRAME.registerComponent('run', {
     {
         this.m0 = document.querySelector("#m0");
         this.m1 = document.querySelector("#m1");
-        this.m1 = document.querySelector("#m2");
+        this.m2 = document.querySelector("#m2");
         this.p0 = new THREE.Vector3();
         this.p1 = new THREE.Vector3();
         this.p2 = new THREE.Vector3();
@@ -51,11 +51,13 @@ AFRAME.registerComponent('run', {
         this.line3 = new THREE.Line( this.geometry3, this.material );
         let scene = document.querySelector('a-scene').object3D;
         scene.add( this.line );
+        scene.add( this.line2 );
+        scene.add( this.line3 );
     },
     
     tick: function (time, deltaTime) 
     {
-        if ( markerVisible["m0"] && markerVisible["m1"] )
+        if ( markerVisible["m0"] && markerVisible["m1"] && markerVisible["m2"])
         {
             this.m0.object3D.getWorldPosition(this.p0);
             this.m1.object3D.getWorldPosition(this.p1);
