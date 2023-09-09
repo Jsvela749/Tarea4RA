@@ -1,0 +1,19 @@
+Tarea 4 - Realidad Aumentada
+
+Elaboró: Jesús Alberto Méndez Vela, Pedro Manuel Ríos Méndez
+
+Nuestro trabajo despliega un triangulo cuando hay 3 marcadores presentes:
+Barcode0, Barcode1 y Barcode2, dependiendo de la posición de los mismos,
+actualiza la figura, pudiendo formar diferentes tipos de triángulos.
+
+Hemos incluido un archivo llamado "MarcadoresPrueba.docx" donde se
+encuentran los marcadores colocados para una prueba rápida y dinámica.
+
+Una prueba en vivo se encuentra en una GitHub page que creamos mediante
+un repositorio en GitHub y es consultable en el siguiente enlace:
+
+https://jsvela749.github.io/Tarea4RA/
+
+Y el código también es consultable en el repositorio:
+
+https://github.com/Jsvela749/Tarea4RA
