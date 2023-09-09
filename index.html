@@ -9,7 +9,7 @@
 
 // store visibility data in object;
 //  can only draw line when both are visible.
-let markerVisible = { m0: false, m1: false };
+let markerVisible = { m0: false, m1: false, m2: false };
 
 AFRAME.registerComponent('registerevents', {
     init: function () 
@@ -31,14 +31,24 @@ AFRAME.registerComponent('run', {
     {
         this.m0 = document.querySelector("#m0");
         this.m1 = document.querySelector("#m1");
+        this.m1 = document.querySelector("#m2");
         this.p0 = new THREE.Vector3();
-        this.p1 = new THREE.Vector3(); 
+        this.p1 = new THREE.Vector3();
+        this.p2 = new THREE.Vector3();
         
         this.geometry = new THREE.Geometry();
+        this.geometry2 = new THREE.Geometry();
+        this.geometry3 = new THREE.Geometry();
         this.geometry.vertices.push( new THREE.Vector3(-1,-1,-1) );
         this.geometry.vertices.push( new THREE.Vector3( 1, 1, 1) );
+        this.geometry2.vertices.push( new THREE.Vector3(-1,-1,-1) );
+        this.geometry2.vertices.push( new THREE.Vector3( 1, 1, 1) );
+        this.geometry3.vertices.push( new THREE.Vector3(-1,-1,-1) );
+        this.geometry3.vertices.push( new THREE.Vector3( 1, 1, 1) );
         this.material = new THREE.LineBasicMaterial( {color: 0xFF0000} );
         this.line = new THREE.Line( this.geometry, this.material );
+        this.line2 = new THREE.Line( this.geometry2, this.material );
+        this.line3 = new THREE.Line( this.geometry3, this.material );
         let scene = document.querySelector('a-scene').object3D;
         scene.add( this.line );
     },
@@ -49,14 +59,25 @@ AFRAME.registerComponent('run', {
         {
             this.m0.object3D.getWorldPosition(this.p0);
             this.m1.object3D.getWorldPosition(this.p1);
+            this.m2.object3D.getWorldPosition(this.p2);
             this.geometry.vertices[0] = this.p0;
             this.geometry.vertices[1] = this.p1;
+            this.geometry2.vertices[0] = this.p1;
+            this.geometry2.vertices[1] = this.p2;
+            this.geometry3.vertices[0] = this.p0;
+            this.geometry3.vertices[1] = this.p2;
             this.geometry.verticesNeedUpdate = true;
+            this.geometry2.verticesNeedUpdate = true;
+            this.geometry3.verticesNeedUpdate = true;
             this.line.visible = true;
+            this.line2.visible = true;
+            this.line3.visible = true;
         }
         else
         {
             this.line.visible = false;
+            this.line2.visible = false;
+            this.line3.visible = false;
         }
     }
 });
@@ -77,6 +98,13 @@ AFRAME.registerComponent('run', {
     </a-marker>
 
     <a-marker type="barcode" value="1" id="m1" registerevents>
+        <a-plane position="0 0 0" 
+                 rotation="-90 0 0"
+                 material="color: white; transparent: true; opacity: 0.10;">
+        </a-plane>
+    </a-marker>
+
+    <a-marker type="barcode" value="2" id="m2" registerevents>
         <a-plane position="0 0 0" 
                  rotation="-90 0 0"
                  material="color: white; transparent: true; opacity: 0.10;">
